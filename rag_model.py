@@ -26,7 +26,7 @@ def setup_rag_model(data):
     retriever = vector_store.as_retriever()
 
     # Initialize LLM (e.g., GPT-3 or other)
-    llm = OpenAI(temperature=0)
+    llm = OpenAI(mocel_name = 'gpt-4',temperature=0)
 
     # Set up the prompt template
     template = """
@@ -45,7 +45,7 @@ def setup_rag_model(data):
     return qa_chain
 
 # Function to query the model
-def qa_chainH(query):
+def qa_chainH(query, qa_chain):
     question = query['query']
     result = qa_chain({"query": question})
     return result
